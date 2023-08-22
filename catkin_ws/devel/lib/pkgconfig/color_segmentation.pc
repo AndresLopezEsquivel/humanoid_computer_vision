@@ -1,0 +1,8 @@
+prefix=/home/andres/Andres/catkin_ws/devel
+
+Name: color_segmentation
+Description: Description of color_segmentation
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
