@@ -67,14 +67,14 @@ set(humanoid_kinematics_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(humanoid_kinematics_SOURCE_PREFIX /home/andres/Andres/catkin_ws/src/humanoid_kinematics)
-  set(humanoid_kinematics_DEVEL_PREFIX /home/andres/Andres/catkin_ws/devel)
+  set(humanoid_kinematics_SOURCE_PREFIX /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/humanoid_kinematics)
+  set(humanoid_kinematics_DEVEL_PREFIX /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/devel)
   set(humanoid_kinematics_INSTALL_PREFIX "")
   set(humanoid_kinematics_PREFIX ${humanoid_kinematics_DEVEL_PREFIX})
 else()
   set(humanoid_kinematics_SOURCE_PREFIX "")
   set(humanoid_kinematics_DEVEL_PREFIX "")
-  set(humanoid_kinematics_INSTALL_PREFIX /home/andres/Andres/catkin_ws/install)
+  set(humanoid_kinematics_INSTALL_PREFIX /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/install)
   set(humanoid_kinematics_PREFIX ${humanoid_kinematics_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/andres/Andres/catkin_ws/install/lib;/home/andres/Desktop/ROS_Noetic_Practice/catkin_ws/devel/lib;/home/andres/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/install/lib;/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/devel/lib;/home/andreslopez/Andres/Mobile-Robots-2024-1/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

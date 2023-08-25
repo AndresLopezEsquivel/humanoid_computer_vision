@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/andres/Andres/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/andres/Andres/catkin_ws/build
+CMAKE_BINARY_DIR = /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/build
 
 # Utility rule file for std_msgs_generate_messages_nodejs.
 
@@ -63,10 +63,10 @@ humanoid_computer_vision/color_segmentation/CMakeFiles/std_msgs_generate_message
 .PHONY : humanoid_computer_vision/color_segmentation/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
 
 humanoid_computer_vision/color_segmentation/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean:
-	cd /home/andres/Andres/catkin_ws/build/humanoid_computer_vision/color_segmentation && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_nodejs.dir/cmake_clean.cmake
+	cd /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/build/humanoid_computer_vision/color_segmentation && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_nodejs.dir/cmake_clean.cmake
 .PHONY : humanoid_computer_vision/color_segmentation/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
 
 humanoid_computer_vision/color_segmentation/CMakeFiles/std_msgs_generate_messages_nodejs.dir/depend:
-	cd /home/andres/Andres/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/andres/Andres/catkin_ws/src /home/andres/Andres/catkin_ws/src/humanoid_computer_vision/color_segmentation /home/andres/Andres/catkin_ws/build /home/andres/Andres/catkin_ws/build/humanoid_computer_vision/color_segmentation /home/andres/Andres/catkin_ws/build/humanoid_computer_vision/color_segmentation/CMakeFiles/std_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/humanoid_computer_vision/color_segmentation /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/build /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/build/humanoid_computer_vision/color_segmentation /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/build/humanoid_computer_vision/color_segmentation/CMakeFiles/std_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : humanoid_computer_vision/color_segmentation/CMakeFiles/std_msgs_generate_messages_nodejs.dir/depend
 

@@ -1,0 +1,159 @@
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Using CATKIN_DEVEL_PREFIX: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/devel
+-- Using CMAKE_PREFIX_PATH: /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1;/usr/local/MATLAB/R2023a/toolbox/ros/mlroscpp/custom_messages
+-- This workspace overlays: /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1;/usr/local/MATLAB/R2023a/toolbox/ros/mlroscpp/custom_messages
+-- Found PythonInterp: /home/andreslopez/.matlab/R2023a/ros1/glnxa64/venv/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+-- Using PYTHON_EXECUTABLE: /home/andreslopez/.matlab/R2023a/ros1/glnxa64/venv/bin/python3
+-- Using Debian Python package layout
+-- Found PY_em: /home/andreslopez/.matlab/R2023a/ros1/glnxa64/venv/lib/python3.8/site-packages/em.py  
+-- Using empy: /home/andreslopez/.matlab/R2023a/ros1/glnxa64/venv/lib/python3.8/site-packages/em.py
+-- Using CATKIN_ENABLE_TESTING: off
+-- catkin 0.8.10
+-- BUILD_SHARED_LIBS is on
+-- BUILD_SHARED_LIBS is on
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- ~~  traversing 1 packages in topological order:
+-- ~~  - experiments
+-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-- +++ processing catkin package: 'experiments'
+-- ==> add_subdirectory(experiments)
+CMake Warning at /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/share/genmsg/cmake/genmsg-extras.cmake:49 (message):
+  Unknown message generator specified in ROS_LANG_DISABLE: geneus
+Call Stack (most recent call first):
+  /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/share/genmsg/cmake/genmsgConfig.cmake:222 (include)
+  /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/share/gencpp/cmake/gencppConfig.cmake:197 (find_package)
+  /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/share/message_generation/cmake/message_generationConfig.cmake:197 (find_package)
+  /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/share/catkin/cmake/catkinConfig.cmake:76 (find_package)
+  experiments/CMakeLists.txt:20 (find_package)
+
+
+CMake Warning at /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/share/genmsg/cmake/genmsg-extras.cmake:49 (message):
+  Unknown message generator specified in ROS_LANG_DISABLE: genlisp
+Call Stack (most recent call first):
+  /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/share/genmsg/cmake/genmsgConfig.cmake:222 (include)
+  /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/share/gencpp/cmake/gencppConfig.cmake:197 (find_package)
+  /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/share/message_generation/cmake/message_generationConfig.cmake:197 (find_package)
+  /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/share/catkin/cmake/catkinConfig.cmake:76 (find_package)
+  experiments/CMakeLists.txt:20 (find_package)
+
+
+CMake Warning at /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/share/genmsg/cmake/genmsg-extras.cmake:49 (message):
+  Unknown message generator specified in ROS_LANG_DISABLE: gennodejs
+Call Stack (most recent call first):
+  /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/share/genmsg/cmake/genmsgConfig.cmake:222 (include)
+  /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/share/gencpp/cmake/gencppConfig.cmake:197 (find_package)
+  /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/share/message_generation/cmake/message_generationConfig.cmake:197 (find_package)
+  /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/share/catkin/cmake/catkinConfig.cmake:76 (find_package)
+  experiments/CMakeLists.txt:20 (find_package)
+
+
+-- Using these message generators: gencpp;genpy
+-- experiments: 0 messages, 1 services
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    Boost_NAMESPACE
+
+
+-- Build files have been written to: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/build
+[1/7] cd /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/build/experiments && /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/build/catkin_generated/env_cached.sh /home/andreslopez/.matlab/R2023a/ros1/glnxa64/venv/bin/python3 /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py experiments /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/src/experiments/srv/example.srv
+[2/7] Generating Python code from SRV experiments/example
+[3/7] Generating Python srv __init__.py for experiments
+[4/7] Generating C++ code from experiments/example.srv
+[5/7] Building CXX object experiments/CMakeFiles/experiments_matlab.dir/src/experiments_example_service.cpp.o
+In file included from /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/boost/include/boost/smart_ptr/detail/sp_thread_sleep.hpp:22,
+                 from /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/boost/include/boost/smart_ptr/detail/yield_k.hpp:23,
+                 from /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/boost/include/boost/smart_ptr/detail/spinlock_gcc_atomic.hpp:14,
+                 from /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/boost/include/boost/smart_ptr/detail/spinlock.hpp:42,
+                 from /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/boost/include/boost/smart_ptr/detail/spinlock_pool.hpp:25,
+                 from /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/boost/include/boost/smart_ptr/shared_ptr.hpp:65,
+                 from /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/boost/include/boost/shared_ptr.hpp:53,
+                 from /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/boost/include/boost/date_time/time_clock.hpp:53,
+                 from /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/boost/include/boost/date_time/posix_time/posix_time_types.hpp:46,
+                 from /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/boost/include/boost/date_time/posix_time/time_formatters.hpp:52,
+                 from /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/boost/include/boost/date_time/posix_time/posix_time.hpp:60,
+                 from /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/boost/include/boost/date_time/local_time/local_time.hpp:47,
+                 from /usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/boost/include/boost/date_time.hpp:51,
+                 from /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/src/experiments/src/experiments_example_service.cpp:3:
+/usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/boost/include/boost/bind.hpp:72:1: note: #pragma message: The practice of declaring the Bind placeholders (_1, _2, ...) in the global namespace is deprecated. Please use <boost/bind/bind.hpp> + using namespace mwboost::placeholders, or define BOOST_BIND_GLOBAL_PLACEHOLDERS to retain the current behavior.
+   72 | BOOST_PRAGMA_MESSAGE(
+      | ^~~~~~~~~~~~~~~~~~~~
+[6/7] Linking CXX shared library /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/devel/lib/libexperiments_matlab.so
+[6/7] Install the project...
+-- Install configuration: "Release"
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/_setup_util.py
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/env.sh
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/setup.bash
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/local_setup.bash
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/setup.sh
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/local_setup.sh
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/setup.zsh
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/local_setup.zsh
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/.rosinstall
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/share/experiments/srv/example.srv
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/share/experiments/cmake/experiments-msg-paths.cmake
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/include/experiments
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/include/experiments/example.h
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/include/experiments/exampleResponse.h
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/include/experiments/exampleRequest.h
+Listing '/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/devel/lib/python3/dist-packages/experiments'...
+Compiling '/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/devel/lib/python3/dist-packages/experiments/__init__.py'...
+Listing '/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/devel/lib/python3/dist-packages/experiments/srv'...
+Compiling '/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/devel/lib/python3/dist-packages/experiments/srv/__init__.py'...
+Compiling '/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/devel/lib/python3/dist-packages/experiments/srv/_example.py'...
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/lib/python3/dist-packages/experiments
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/lib/python3/dist-packages/experiments/srv
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/lib/python3/dist-packages/experiments/srv/__pycache__
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/lib/python3/dist-packages/experiments/srv/__pycache__/_example.cpython-38.pyc
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/lib/python3/dist-packages/experiments/srv/__pycache__/__init__.cpython-38.pyc
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/lib/python3/dist-packages/experiments/srv/__init__.py
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/lib/python3/dist-packages/experiments/srv/_example.py
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/lib/python3/dist-packages/experiments/__pycache__
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/lib/python3/dist-packages/experiments/__pycache__/__init__.cpython-38.pyc
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/lib/python3/dist-packages/experiments/__init__.py
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/lib/pkgconfig/experiments.pc
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/share/experiments/cmake/experiments-msg-extras.cmake
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/share/experiments/cmake/experimentsConfig.cmake
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/share/experiments/cmake/experimentsConfig-version.cmake
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/share/experiments/package.xml
+-- Up-to-date: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/include
+-- Up-to-date: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/include/experiments
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/include/experiments/visibility_control.h
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/lib/libexperiments_matlab.so
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/m/
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/m//+ros
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/m//+ros/+msggen
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/m//+ros/+msggen/+experiments
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/m//+ros/+msggen/+experiments/exampleResponse.m
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/m//+ros/+msggen/+experiments/exampleRequest.m
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/m//+ros/+internal
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/m//+ros/+internal/+ros
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/m//+ros/+internal/+ros/+custommessages
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/m//+ros/+internal/+ros/+custommessages/+experiments
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/m//+ros/+internal/+ros/+custommessages/+experiments/exampleResponse.m
+-- Installing: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install/m//+ros/+internal/+ros/+custommessages/+experiments/exampleRequest.m
+Base path: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64
+Source space: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/src
+Build space: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/build
+Devel space: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/devel
+Install space: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install
+Creating symlink "/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/src/CMakeLists.txt" pointing to "/usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1/share/catkin/cmake/toplevel.cmake"
+####
+#### Running command: "cmake /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/src -DALIAS_ROS1_CLASS_LOADER=1 -DBoost_NAMESPACE=mwboost -DCATKIN_ENABLE_TESTING=off -DCMAKE_PREFIX_PATH=/usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1;/usr/local/MATLAB/R2023a/toolbox/ros/mlroscpp/custom_messages -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS_RELEASE=-O0 -DCATKIN_DEVEL_PREFIX=/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/devel -DCMAKE_INSTALL_PREFIX=/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install -G Ninja" in "/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/build"
+####
+####
+#### Running command: "ninja install install -j24 -l24" in "/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/build"
+####

@@ -1,8 +1,8 @@
-# Install script for directory: /home/andres/Andres/catkin_ws/src/humanoid_computer_vision/color_segmentation
+# Install script for directory: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/humanoid_computer_vision/color_segmentation
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/andres/Andres/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/andres/Andres/catkin_ws/build/humanoid_computer_vision/color_segmentation/catkin_generated/installspace/color_segmentation.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/build/humanoid_computer_vision/color_segmentation/catkin_generated/installspace/color_segmentation.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/color_segmentation/cmake" TYPE FILE FILES
-    "/home/andres/Andres/catkin_ws/build/humanoid_computer_vision/color_segmentation/catkin_generated/installspace/color_segmentationConfig.cmake"
-    "/home/andres/Andres/catkin_ws/build/humanoid_computer_vision/color_segmentation/catkin_generated/installspace/color_segmentationConfig-version.cmake"
+    "/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/build/humanoid_computer_vision/color_segmentation/catkin_generated/installspace/color_segmentationConfig.cmake"
+    "/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/build/humanoid_computer_vision/color_segmentation/catkin_generated/installspace/color_segmentationConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/color_segmentation" TYPE FILE FILES "/home/andres/Andres/catkin_ws/src/humanoid_computer_vision/color_segmentation/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/color_segmentation" TYPE FILE FILES "/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/humanoid_computer_vision/color_segmentation/package.xml")
 endif()
 

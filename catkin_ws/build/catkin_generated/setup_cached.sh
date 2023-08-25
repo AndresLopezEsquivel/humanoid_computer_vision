@@ -7,8 +7,4 @@
 # new environment variables
 
 # modified environment variables
-export CMAKE_PREFIX_PATH="/home/andres/Andres/catkin_ws/devel:$CMAKE_PREFIX_PATH"
-export PATH='/opt/ros/noetic/bin:/home/andres/anaconda3/condabin:/home/andres/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin'
-export PWD='/home/andres/Andres/catkin_ws/build'
-export ROSLISP_PACKAGE_DIRECTORIES="/home/andres/Andres/catkin_ws/devel/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
-export ROS_PACKAGE_PATH="/home/andres/Andres/catkin_ws/src:$ROS_PACKAGE_PATH"
+export PWD='/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/build'

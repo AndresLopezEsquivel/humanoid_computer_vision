@@ -1,4 +1,4 @@
-prefix=/home/andres/Andres/catkin_ws/install
+prefix=/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/install
 
 Name: humanoid_kinematics
 Description: Description of humanoid_kinematics

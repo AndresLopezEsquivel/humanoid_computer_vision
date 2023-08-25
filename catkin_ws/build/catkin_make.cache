@@ -1,2 +1,2 @@
-humanoid_computer_vision/color_segmentation:humanoid_kinematics
--DCATKIN_DEVEL_PREFIX=/home/andres/Andres/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/andres/Andres/catkin_ws/install -G Unix Makefiles
+experiments:humanoid_computer_vision/color_segmentation:humanoid_kinematics
+-DCATKIN_DEVEL_PREFIX=/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/install -G Unix Makefiles

@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "color_segmentation"
-PROJECT_SPACE_DIR = "/home/andres/Andres/catkin_ws/devel"
+PROJECT_SPACE_DIR = "/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/devel"
 PROJECT_VERSION = "0.0.0"

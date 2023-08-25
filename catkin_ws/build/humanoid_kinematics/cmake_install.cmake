@@ -1,8 +1,8 @@
-# Install script for directory: /home/andres/Andres/catkin_ws/src/humanoid_kinematics
+# Install script for directory: /home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/humanoid_kinematics
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/andres/Andres/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/andres/Andres/catkin_ws/build/humanoid_kinematics/catkin_generated/installspace/humanoid_kinematics.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/build/humanoid_kinematics/catkin_generated/installspace/humanoid_kinematics.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/humanoid_kinematics/cmake" TYPE FILE FILES
-    "/home/andres/Andres/catkin_ws/build/humanoid_kinematics/catkin_generated/installspace/humanoid_kinematicsConfig.cmake"
-    "/home/andres/Andres/catkin_ws/build/humanoid_kinematics/catkin_generated/installspace/humanoid_kinematicsConfig-version.cmake"
+    "/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/build/humanoid_kinematics/catkin_generated/installspace/humanoid_kinematicsConfig.cmake"
+    "/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/build/humanoid_kinematics/catkin_generated/installspace/humanoid_kinematicsConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/humanoid_kinematics" TYPE FILE FILES "/home/andres/Andres/catkin_ws/src/humanoid_kinematics/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/humanoid_kinematics" TYPE FILE FILES "/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/humanoid_kinematics/package.xml")
 endif()
 
