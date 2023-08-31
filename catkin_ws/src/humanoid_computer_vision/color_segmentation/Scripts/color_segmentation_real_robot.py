@@ -9,6 +9,7 @@ import math
 import tf2_msgs.msg
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
+from experiments.srv import example, exampleResponse, exampleRequest
 
 CAMERA_MATRIX = np.array([[531.16719459, 0,686.90394518], [0, 532.5711697, 364.00099154], [0, 0, 1]], dtype=np.float32)
 
@@ -86,6 +87,26 @@ def get_undistorted_point_px(distorted_point, camera_matrix, distortion_coef):
 
     return (x, y)
 
+def get_undistorted_px_by_service(distorted_point):
+
+  serv_name = 'experimental_service'
+  rospy.wait_for_service(serv_name)
+  try:
+    undistort_px = rospy.ServiceProxy(name = serv_name,
+                                      service_class = example)
+
+    req = exampleRequest()
+    req.x_dist = distorted_point[0]
+    req.y_dist = distorted_point[1]
+    res = undistort_px(req)    
+    print('x_dist: ', res.x_undis)
+    print('y_dist: ', res.y_undis)
+
+    return (int(res.x_undis), int(res.y_undis))
+
+  except rospy.ServiceException as e:
+    print("Service call failed: ", e)
+
 def get_roll_pitch_yaw(centroid_x,
                        centroid_y,
                        img_x_center,
@@ -132,7 +153,7 @@ def camera_callback():
 
     rate = rospy.Rate(10)
 
-    cap = cv2.VideoCapture(2)
+    cap = cv2.VideoCapture(0)
 
     while not rospy.is_shutdown():
 
@@ -159,11 +180,14 @@ def camera_callback():
       undistorted_img = get_undistorted_image(distorted_image = distorted_image,
                                               camera_matrix = CAMERA_MATRIX,
                                               distortion_coef = DIST)
-    
+      """
       undistorted_centroid = get_undistorted_point_px(distorted_point = distorted_centroid,
                                                       camera_matrix = CAMERA_MATRIX,
                                                       distortion_coef = DIST)
-    
+      """ 
+      
+      undistorted_centroid = get_undistorted_px_by_service(distorted_point = distorted_centroid)
+      
       x_undistorted, y_undistorted = undistorted_centroid
     
       undistorted_img = cv2.circle(undistorted_img,
