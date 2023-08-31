@@ -164,7 +164,7 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
 //No help, variable specified on the command line.
-CMAKE_PREFIX_PATH:UNINITIALIZED=/usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1;/usr/local/MATLAB/R2023a/toolbox/ros/mlroscpp/custom_messages
+CMAKE_PREFIX_PATH:UNINITIALIZED=/usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1;/usr/local/MATLAB/R2023a/toolbox/ros/mlroscpp/custom_messages;/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install
 
 //Value Computed by CMake
 CMAKE_PROJECT_DESCRIPTION:STATIC=

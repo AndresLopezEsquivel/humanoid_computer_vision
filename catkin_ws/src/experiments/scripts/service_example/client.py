@@ -10,8 +10,8 @@ def client():
                                         service_class = example)
 
         req = exampleRequest()
-        req.x_dist = 1.0
-        req.y_dist = 2.0
+        req.x_dist = 1280
+        req.y_dist = 0
 
         res = service_func(req)
         

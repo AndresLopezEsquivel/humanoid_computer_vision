@@ -1,5 +1,3 @@
-% Remember to:
-% rosgenmsg from the dir where you have all your packages
 clear
 rosshutdown
 rosinit
@@ -31,14 +29,12 @@ function response = serviceCallback(src,reqMsg,defaultRespMsg)
     'RadialDistortion',RadialDist);
     % class(defaultRespMsg)
     % properties(defaultRespMsg)
-    % properties(reqMsg)
+    properties(reqMsg)
     x_dist = reqMsg.XDist;
     y_dist = reqMsg.YDist;
     dist_points = [x_dist, y_dist];
     udis_points = undistortPoints(dist_points,cameraParams);
-    % response = defaultRespMsg;
-    response = ros.msggen.experiments.exampleResponse;
-    % class(defaultRespMsg)
-    response.XUndis = udis_points(1);
-    response.YUndis = udis_points(2);
+    response = defaultRespMsg;
+    % response.XUndis = udis_points(udis_points(1));
+    % response.YUndis = udis_points(udis_points(2));
 end

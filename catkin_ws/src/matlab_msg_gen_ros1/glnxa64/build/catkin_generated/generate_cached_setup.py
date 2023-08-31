@@ -12,7 +12,7 @@ try:
     from catkin.environment_cache import generate_environment_script
 except ImportError:
     # search for catkin package in all workspaces and prepend to path
-    for workspace in '/usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1;/usr/local/MATLAB/R2023a/toolbox/ros/mlroscpp/custom_messages'.split(';'):
+    for workspace in '/usr/local/MATLAB/R2023a/sys/ros1/glnxa64/ros1;/usr/local/MATLAB/R2023a/toolbox/ros/mlroscpp/custom_messages;/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/install'.split(';'):
         python_path = os.path.join(workspace, 'lib/python3/dist-packages')
         if os.path.isdir(os.path.join(python_path, 'catkin')):
             sys.path.insert(0, python_path)
