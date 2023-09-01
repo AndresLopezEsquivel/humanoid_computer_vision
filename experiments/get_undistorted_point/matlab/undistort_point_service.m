@@ -1,11 +1,12 @@
+function undistort_point_service
 % Remember to:
 % rosgenmsg from the dir where you have all your packages
-clear
-rosshutdown
-rosinit
+% clear
+% rosshutdown
+% rosinit
 
-testserver = rossvcserver("experimental_service","experiments/example",@serviceCallback);%,"DataFormat","struct");
-testserver.NewRequestFcn = @serviceCallback;
+testserver = rossvcserver("experimental_service","experiments/example",@serviceCallback, "DataFormat","struct");
+% testserver.NewRequestFcn = @serviceCallback;
 while true
     pause(0.1)
 end
@@ -36,9 +37,12 @@ function response = serviceCallback(src,reqMsg,defaultRespMsg)
     y_dist = reqMsg.YDist;
     dist_points = [x_dist, y_dist];
     udis_points = undistortPoints(dist_points,cameraParams);
-    % response = defaultRespMsg;
-    response = ros.msggen.experiments.exampleResponse;
+    response = defaultRespMsg;
+    class(response)
+    % response = ros.msggen.experiments.exampleResponse;
     % class(defaultRespMsg)
     response.XUndis = udis_points(1);
     response.YUndis = udis_points(2);
+end
+
 end
