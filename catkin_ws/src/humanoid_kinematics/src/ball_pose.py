@@ -59,6 +59,8 @@ if __name__ == '__main__':
         Py =  float(trans2.transform.translation.y)
         Pz =  float(trans2.transform.translation.z)
 
+        print(Px, Py, Pz)
+
         PQ = [Px - Qx, Py - Qy, Pz - Qz]
 
         k = (-1 * Pz)/PQ[2]

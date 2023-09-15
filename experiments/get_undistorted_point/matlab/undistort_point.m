@@ -1,4 +1,4 @@
-clc; clear;
+% clc; clear;
 format long
 % Camera instrinsic parameters
 K = [531.16719459, 0,686.90394518; 0, 532.5711697, 364.00099154; 0, 0, 1];
@@ -38,15 +38,16 @@ x = 1280 * ones(1,s(2));
 pointsC = horzcat(x',y');
 
 x = 1280 : -1 : 0;
-x = 0 : 1280;
+% x = 0 : 1280;
 s = size(x);
 y = 0 * ones(1,s(2));
 pointsD = horzcat(x',y');
 
 points = vertcat(pointsA, pointsB, pointsC, pointsD);
-plot(points(:,1), points(:,2), 'LineWidth', 2);
+% plot(points(:,1), points(:,2), 'LineWidth', 2);
+% hold on;
 
-hold on;
+% points = [0,0;0,1280;1280,360;640,360];
 
 undistortedPoints = undistortPoints(points,cameraParams);
 

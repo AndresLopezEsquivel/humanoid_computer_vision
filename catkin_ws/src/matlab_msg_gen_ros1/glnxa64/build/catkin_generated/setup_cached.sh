@@ -10,6 +10,5 @@
 export CMAKE_PREFIX_PATH="/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/devel:$CMAKE_PREFIX_PATH"
 export LD_LIBRARY_PATH="/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/devel/lib:$LD_LIBRARY_PATH"
 export PKG_CONFIG_PATH="/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/devel/lib/pkgconfig:$PKG_CONFIG_PATH"
-export PWD='/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/build'
 export PYTHONPATH="/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/devel/lib/python3/dist-packages:$PYTHONPATH"
 export ROS_PACKAGE_PATH="/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/matlab_msg_gen_ros1/glnxa64/src:$ROS_PACKAGE_PATH"

@@ -409,6 +409,9 @@ cpp_common_DIR:PATH=/opt/ros/noetic/share/cpp_common/cmake
 //Value Computed by CMake
 experiments_BINARY_DIR:STATIC=/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/build/experiments
 
+//The directory containing a CMake configuration file for experiments.
+experiments_DIR:PATH=/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/devel/share/experiments/cmake
+
 //Value Computed by CMake
 experiments_SOURCE_DIR:STATIC=/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/experiments
 
@@ -483,7 +486,7 @@ humanoid_kinematics_BINARY_DIR:STATIC=/home/andreslopez/Andres/humanoid_computer
 humanoid_kinematics_SOURCE_DIR:STATIC=/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/humanoid_kinematics
 
 //Path to a library.
-lib:FILEPATH=/opt/ros/noetic/lib/librostime.so
+lib:FILEPATH=/opt/ros/noetic/lib/libxmlrpcpp.so
 
 //The directory containing a CMake configuration file for message_generation.
 message_generation_DIR:PATH=/opt/ros/noetic/share/message_generation/cmake
@@ -491,11 +494,20 @@ message_generation_DIR:PATH=/opt/ros/noetic/share/message_generation/cmake
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/noetic/share/message_runtime/cmake
 
+//The directory containing a CMake configuration file for rosconsole.
+rosconsole_DIR:PATH=/opt/ros/noetic/share/rosconsole/cmake
+
+//The directory containing a CMake configuration file for roscpp.
+roscpp_DIR:PATH=/opt/ros/noetic/share/roscpp/cmake
+
 //The directory containing a CMake configuration file for roscpp_serialization.
 roscpp_serialization_DIR:PATH=/opt/ros/noetic/share/roscpp_serialization/cmake
 
 //The directory containing a CMake configuration file for roscpp_traits.
 roscpp_traits_DIR:PATH=/opt/ros/noetic/share/roscpp_traits/cmake
+
+//The directory containing a CMake configuration file for rosgraph_msgs.
+rosgraph_msgs_DIR:PATH=/opt/ros/noetic/share/rosgraph_msgs/cmake
 
 //The directory containing a CMake configuration file for rospy.
 rospy_DIR:PATH=/opt/ros/noetic/share/rospy/cmake
@@ -505,6 +517,15 @@ rostime_DIR:PATH=/opt/ros/noetic/share/rostime/cmake
 
 //The directory containing a CMake configuration file for std_msgs.
 std_msgs_DIR:PATH=/opt/ros/noetic/share/std_msgs/cmake
+
+//Value Computed by CMake
+undistort_point_service_BINARY_DIR:STATIC=/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/build/undistort_point_service
+
+//Value Computed by CMake
+undistort_point_service_SOURCE_DIR:STATIC=/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/src/undistort_point_service
+
+//The directory containing a CMake configuration file for xmlrpcpp.
+xmlrpcpp_DIR:PATH=/opt/ros/noetic/share/xmlrpcpp/cmake
 
 
 ########################
@@ -654,7 +675,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

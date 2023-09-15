@@ -191,9 +191,9 @@ def camera_callback():
       angles = get_roll_pitch_yaw(centroid_x = x_undistorted,
                                   centroid_y = y_undistorted,
                                   img_x_center = 640,
-                                  img_y_center = 870/2, # 870/2
-                                  width_resolution = 1280,
-                                  height_resolution = 870, # 870
+                                  img_y_center = 360, # 870/2
+                                  width_resolution = 1550, # 1280
+                                  height_resolution = 1290, # 870
                                   hfov_rad = 2.6180,
                                   vfov_rad = 2.2689)
       
