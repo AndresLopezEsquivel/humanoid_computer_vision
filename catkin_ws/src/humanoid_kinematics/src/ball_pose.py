@@ -1,6 +1,5 @@
 #!/usr/bin/env python3  
 import rospy
-
 import math
 import tf2_ros
 import geometry_msgs.msg
@@ -9,6 +8,9 @@ import tf2_geometry_msgs
 # added 21-jun-2023
 import csv
 import time
+# added 21-sep-2023
+import numpy as np
+from kalman_filter import EKF
 
 # http://wiki.ros.org/tf2/Tutorials/Writing%20a%20tf2%20listener%20%28Python%29
 # https://answers.ros.org/question/335584/how-to-transpose-and-rotate-frames-and-get-new-coordinates/
@@ -59,7 +61,7 @@ if __name__ == '__main__':
         Py =  float(trans2.transform.translation.y)
         Pz =  float(trans2.transform.translation.z)
 
-        print(Px, Py, Pz)
+        # print(Px, Py, Pz)
 
         PQ = [Px - Qx, Py - Qy, Pz - Qz]
 
@@ -68,8 +70,18 @@ if __name__ == '__main__':
         ball_x = Px + k * PQ[0]
         ball_y = Py + k * PQ[1]
         ball_z = 0
+        print('=' * 10)
+        print('without kalman filter: ',ball_x,ball_y,ball_z)
 
-        print(ball_x,ball_y,ball_z)
+        # Applying Kalman Filter and considering constant velocity
 
-        write_pose_and_time(ball_x, ball_y, './ball_pose_data_2023-07-04-184552.csv')
+        # Q = numpy.identity(4) * 0.1
+        # R = numpy.identity(2) * 0.01
+
+        # kf = EKF(0.1, Q, R)
+        # kf_pos_x, kf_pos_y = kf.estimate(Z = [ball_x, ball_y])
+
+        # print('with kalman filter:', kf_pos_x, kf_pos_y)
+
+        # write_pose_and_time(ball_x, ball_y, './ball_pose_data_2023-07-04-184552.csv')
 
