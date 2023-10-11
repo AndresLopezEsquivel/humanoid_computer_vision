@@ -49,7 +49,6 @@ if __name__ == '__main__':
             # rate.sleep()
             continue
 
-        print("=" * 10)
         # print('p_new_camera to left_foot_plane: ', p_left_foot_plane.pose.position.x, p_left_foot_plane.pose.position.y, p_left_foot_plane.pose.position.z)
         # print('origin of camera_optical to left_foot_plane: ', trans2.transform.translation.x, trans2.transform.translation.y, trans2.transform.translation.z)
 
@@ -62,9 +61,9 @@ if __name__ == '__main__':
         Pz =  float(trans2.transform.translation.z)
 
         # print(Px, Py, Pz)
-
+        
         PQ = [Px - Qx, Py - Qy, Pz - Qz]
-
+        """
         k = (-1 * Pz)/PQ[2]
 
         ball_x = Px + k * PQ[0]
@@ -72,16 +71,30 @@ if __name__ == '__main__':
         ball_z = 0
         print('=' * 10)
         print('without kalman filter: ',ball_x,ball_y,ball_z)
+        """
+        
+        # ball radius
+        r = 0.08 / 2
+        k = (r - Pz) / PQ[2]
+        ball_x = Px + k * PQ[0]
+        ball_y = Py + k * PQ[1]
+        ball_z = r
 
+        ball_x = round(ball_x, 2)
+        ball_y = round(ball_y, 2)
+        ball_z = round(ball_z, 2)
+        
+        
         # Applying Kalman Filter and considering constant velocity
 
-        # Q = numpy.identity(4) * 0.1
-        # R = numpy.identity(2) * 0.01
-
-        # kf = EKF(0.1, Q, R)
-        # kf_pos_x, kf_pos_y = kf.estimate(Z = [ball_x, ball_y])
-
-        # print('with kalman filter:', kf_pos_x, kf_pos_y)
+        Q = np.identity(4) * 0.1
+        R = np.identity(2) * 0.01
+        kf = EKF(0.1, Q, R)
+        kf_pos_x, kf_pos_y, _, _ = kf.estimate(Z = [ball_x, ball_y])
+        print(10 * '===')
+        print('without kalman filter: ', 'x: ', ball_x, 'y: ', ball_y, 'z: ', ball_z)
+        print('with kalman filter:', kf_pos_x, kf_pos_y)
+        print(10 * '===')
 
         # write_pose_and_time(ball_x, ball_y, './ball_pose_data_2023-07-04-184552.csv')
 
