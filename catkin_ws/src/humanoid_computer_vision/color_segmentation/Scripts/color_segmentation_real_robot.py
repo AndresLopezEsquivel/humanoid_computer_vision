@@ -147,149 +147,125 @@ def get_quaternion_from_euler(roll, pitch, yaw):
  
   return [qx, qy, qz, qw]
 
-def camera_callback():
+def callback(data):
 
-    rospy.init_node('color_segmentation')
+  bridge = CvBridge()
 
-    rate = rospy.Rate(10)
+  frame = bridge.imgmsg_to_cv2(data)
 
-    cap = cv2.VideoCapture(0)
+  # _, frame = cap.read()
 
-    print("Camera initiated")
+  distorted_image = frame
 
-    while not rospy.is_shutdown():
+  # Getting color segmentation
 
-      _, frame = cap.read()
+  hsv_lower_limit = np.array([40, 100, 50])
 
-      distorted_image = frame
+  hsv_upper_limit = np.array([80, 255, 255])
 
-      # Getting color segmentation
-
-      hsv_lower_limit = np.array([40, 100, 50])
-
-      hsv_upper_limit = np.array([80, 255, 255])
-
-      binary_image = get_color_segmentation(bgr_image = distorted_image,
-                                          hsv_lower_limit = hsv_lower_limit,
-                                          hsv_upper_limit = hsv_upper_limit)
+  binary_image = get_color_segmentation(bgr_image = distorted_image,
+                                        hsv_lower_limit = hsv_lower_limit,
+                                        hsv_upper_limit = hsv_upper_limit)
     
-      distorted_centroid = get_centroid_px_from_binary_img(binary_img = binary_image)
+  distorted_centroid = get_centroid_px_from_binary_img(binary_img = binary_image)
 
-      x_distorted, y_distorted = distorted_centroid
+  x_distorted, y_distorted = distorted_centroid
       
-      # Getting undistorted image
+  # Getting undistorted image
 
-      undistorted_img = get_undistorted_image(distorted_image = distorted_image,
-                                              camera_matrix = CAMERA_MATRIX,
-                                              distortion_coef = DIST)
-      """
-      undistorted_centroid = get_undistorted_point_px(distorted_point = distorted_centroid,
-                                                      camera_matrix = CAMERA_MATRIX,
-                                                      distortion_coef = DIST)
-      """ 
+  undistorted_img = get_undistorted_image(distorted_image = distorted_image,
+                                          camera_matrix = CAMERA_MATRIX,
+                                          distortion_coef = DIST)
+  """
+  undistorted_centroid = get_undistorted_point_px(distorted_point = distorted_centroid,
+                                                  camera_matrix = CAMERA_MATRIX,
+                                                  distortion_coef = DIST)
+  """ 
       
-      undistorted_centroid = get_undistorted_px_by_service(distorted_point = distorted_centroid)
+  undistorted_centroid = get_undistorted_px_by_service(distorted_point = distorted_centroid)
       
-      x_undistorted, y_undistorted = undistorted_centroid
+  x_undistorted, y_undistorted = undistorted_centroid
     
-      undistorted_img = cv2.circle(undistorted_img,
-                                  (undistorted_centroid[0],
-                                  undistorted_centroid[1]),
-                                  radius = 5,
-                                  color = (0, 0, 255),
-                                  thickness = -1)
+  undistorted_img = cv2.circle(undistorted_img,
+                              (undistorted_centroid[0],
+                              undistorted_centroid[1]),
+                              radius = 5,
+                              color = (0, 0, 255),
+                              thickness = -1)
       
-      # == TF ==
-      # hfov_rad = 2.9671 (170), vfov_rad = 2.8449 (163)
-      # hfov_rad = 2.6180 (150), vfov_rad = 2.2689 (130)
-      # hfov_rad = 2.4435 (140), vfov_rad = 2.0071 (140)
-      """
-      roll, pitch, yaw = get_roll_pitch_yaw(centroid_x = x_undistorted,
-                                            centroid_y = y_undistorted,
-                                            width_resolution = 1280,
-                                            height_resolution = 894,
-                                            hfov_rad = 2.6180, 
-                                            vfov_rad = 2.2689)
-      """
+  # == TF ==
+  # hfov_rad = 2.9671 (170), vfov_rad = 2.8449 (163)
+  # hfov_rad = 2.6180 (150), vfov_rad = 2.2689 (130)
+  # hfov_rad = 2.4435 (140), vfov_rad = 2.0071 (140)
+  """
+  roll, pitch, yaw = get_roll_pitch_yaw(centroid_x = x_undistorted,
+                                        centroid_y = y_undistorted,
+                                        width_resolution = 1280,
+                                        height_resolution = 894,
+                                        hfov_rad = 2.6180, 
+                                        vfov_rad = 2.2689)
+  """
 
-      angles = get_roll_pitch_yaw(centroid_x = x_undistorted,
-                                  centroid_y = y_undistorted,
-                                  img_x_center = 640,
-                                  img_y_center = 360, # 870/2
-                                  width_resolution = 1550, #1280
-                                  height_resolution = 1290, # 870
-                                  hfov_rad = 2.6180,
-                                  vfov_rad = 2.2689)
+  angles = get_roll_pitch_yaw(centroid_x = x_undistorted,
+                              centroid_y = y_undistorted,
+                              img_x_center = 640,
+                              img_y_center = 360, # 870/2
+                              width_resolution = 1550, #1280
+                              height_resolution = 1290, # 870
+                              hfov_rad = 2.6180,
+                              vfov_rad = 2.2689)
       
-      roll, pitch, yaw = angles
+  roll, pitch, yaw = angles
 
-      q = get_quaternion_from_euler(roll = roll,
-                                    pitch = pitch,
-                                    yaw = yaw)
+  q = get_quaternion_from_euler(roll = roll,
+                                pitch = pitch,
+                                yaw = yaw)
 
-      pub_tf = rospy.Publisher("/tf", tf2_msgs.msg.TFMessage, queue_size=1)
+  pub_tf = rospy.Publisher("/tf", tf2_msgs.msg.TFMessage, queue_size=1)
 
-      # rospy.sleep(0.1)
+  # rospy.sleep(0.1)
 
-      t = geometry_msgs.msg.TransformStamped()
-      t.header.frame_id = "camera_optical"
-      t.header.stamp = rospy.Time.now()
-      t.child_frame_id = "new_camera_optical"
-      t.transform.translation.x = 0.0
-      t.transform.translation.y = 0.0
-      t.transform.translation.z = 0.0
+  t = geometry_msgs.msg.TransformStamped()
+  t.header.frame_id = "camera_optical"
+  t.header.stamp = rospy.Time.now()
+  t.child_frame_id = "new_camera_optical"
+  t.transform.translation.x = 0.0
+  t.transform.translation.y = 0.0
+  t.transform.translation.z = 0.0
 
-      t.transform.rotation.x = q[0]
-      t.transform.rotation.y = q[1]
-      t.transform.rotation.z = q[2]
-      t.transform.rotation.w = q[3]
+  t.transform.rotation.x = q[0]
+  t.transform.rotation.y = q[1]
+  t.transform.rotation.z = q[2]
+  t.transform.rotation.w = q[3]
 
-      tfm = tf2_msgs.msg.TFMessage([t])
-      pub_tf.publish(tfm)
+  tfm = tf2_msgs.msg.TFMessage([t])
+  pub_tf.publish(tfm)
 
-      # == INFO TO PRINT ==
+  # == INFO TO PRINT ==
     
-      print('distorted_centroid: ',
-            distorted_centroid,
-            ' undistorted_centroid: ',
-            undistorted_centroid,
-            'angles RPY: ',
-            angles)
+  print('distorted_centroid: ',
+        distorted_centroid,
+        ' undistorted_centroid: ',
+        undistorted_centroid,
+        'angles RPY: ',
+        angles)
     
-      cv2.imshow('binary_image', binary_image)
+  cv2.imshow('binary_image', binary_image)
 
-      cv2.imshow('distorted_image', distorted_image)
+  cv2.imshow('distorted_image', distorted_image)
 
-      cv2.imshow('undistorted_image', undistorted_img)
+  cv2.imshow('undistorted_image', undistorted_img)
 
-      rate.sleep()
-
-      if cv2.waitKey(1) & 0xFF == ord('q'):
-
-         break
-
-      if rospy.is_shutdown():
-
-         cap.release()   
-
-      cv2.waitKey(1)
+  cv2.waitKey(1)
       
 
 
 if __name__ == '__main__':
 
-    node_name = 'color_segmentation'
+  rospy.init_node('color_segmentation', anonymous=True)
 
-    topic_name = '/cv_camera/image_raw'
+  rospy.Subscriber('video_frames', Image, callback)
 
-    try:
-    
-      camera_callback()
+  rospy.spin()
 
-    except rospy.ROSInterruptException:
-       
-       pass
-
-    # rospy.Subscriber(name = topic_name, data_class = Image, callback = camera_callback)
-
-    # rospy.spin()
+  cv2.destroyAllWindows()
