@@ -5,6 +5,7 @@
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
+subdirs("sensors/camera")
 subdirs("humanoid_computer_vision/color_segmentation")
 subdirs("experiments")
 subdirs("humanoid_kinematics")

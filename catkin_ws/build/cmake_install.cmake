@@ -131,6 +131,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/build/gtest/cmake_install.cmake")
+  include("/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/build/sensors/camera/cmake_install.cmake")
   include("/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/build/humanoid_computer_vision/color_segmentation/cmake_install.cmake")
   include("/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/build/experiments/cmake_install.cmake")
   include("/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/build/humanoid_kinematics/cmake_install.cmake")
