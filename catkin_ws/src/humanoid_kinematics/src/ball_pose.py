@@ -90,11 +90,23 @@ if __name__ == '__main__':
         Q = np.identity(4) * 0.1
         R = np.identity(2) * 0.01
         kf = EKF(0.1, Q, R)
-        kf_pos_x, kf_pos_y, _, _ = kf.estimate(Z = [ball_x, ball_y])
-        print(10 * '===')
-        print('without kalman filter: ', 'x: ', ball_x, 'y: ', ball_y, 'z: ', ball_z)
-        print('with kalman filter:', kf_pos_x, kf_pos_y)
+        kf_pos_x, kf_pos_y, kf_vel_x, kf_vel_y = kf.estimate(Z = [ball_x, ball_y])
+
         print(10 * '===')
 
+        print('without kalman filter: ',
+        'x: ', ball_x,
+        'y: ', ball_y,
+        'z: ', ball_z)
+
+        print('with kalman filter:',
+        'x_pos: ', kf_pos_x,
+        'y_pos: ', kf_pos_y,
+        'x_vel: ', kf_vel_x,
+        'y_vel: ', kf_vel_y)
+
+        print(10 * '===')
+        rate.sleep()
+        
         # write_pose_and_time(ball_x, ball_y, './ball_pose_data_2023-07-04-184552.csv')
 
