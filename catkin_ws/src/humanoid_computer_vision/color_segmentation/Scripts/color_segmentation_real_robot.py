@@ -250,13 +250,13 @@ def callback(data):
         'angles RPY: ',
         angles)
     
-  cv2.imshow('binary_image', binary_image)
+  # cv2.imshow('binary_image', binary_image)
 
-  cv2.imshow('distorted_image', distorted_image)
+  # cv2.imshow('distorted_image', distorted_image)
 
-  cv2.imshow('undistorted_image', undistorted_img)
+  # cv2.imshow('undistorted_image', undistorted_img)
 
-  cv2.waitKey(1)
+  # cv2.waitKey(1)
       
 
 
