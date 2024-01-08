@@ -1,8 +1,0 @@
-prefix=/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/devel
-
-Name: humanoid_kinematics
-Description: Description of humanoid_kinematics
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

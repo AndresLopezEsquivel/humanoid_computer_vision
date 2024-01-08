@@ -1,2 +1,0 @@
-experiments:humanoid_computer_vision/color_segmentation:humanoid_kinematics:undistort_point_service
--DCATKIN_DEVEL_PREFIX=/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/install -G Unix Makefiles

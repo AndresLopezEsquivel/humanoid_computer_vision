@@ -1,8 +1,0 @@
-prefix=/home/andreslopez/Andres/humanoid_computer_vision/catkin_ws/install
-
-Name: color_segmentation
-Description: Description of color_segmentation
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
