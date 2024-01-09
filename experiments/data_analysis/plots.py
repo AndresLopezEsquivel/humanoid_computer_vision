@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import matplotlib.pyplot as plt
 from pprint import pprint
 import csv
@@ -53,46 +54,50 @@ for csv_path in os.listdir('./data_sources/'):
                for i
                in range(len(y_data))]
     
-    # y-axis plots
+    # Plot y-axis position along with the ball's velocity
 
-    fig, (y_position_plot, kf_y_pos_plot, y_speed_plot, kf_y_vel_plot) = plt.subplots(4)
+    fig, y_position = plt.subplots()
+    
+    y_position.set_title('Posición en el eje y')
+    y_position.plot(time_data, y_data, label = '[m] (Sin KF)')
+    y_position.plot(time_data, kf_y_pos, label = '[m] (Con KF)')
+    # y_position.plot(time_data, kf_y_vel, label = '[m/s] (Con KF)')
+    y_position.set_xlabel(xlabel = 'Tiempo [s]')
+    y_position.legend()
+    y_position.grid(True)
+    plt.savefig(f"./plots/y_axis_position_{csv_path.split('.')[0]}.png")
 
-    fig.suptitle('y-axis ' + csv_path)
+    # Plot y-axis velocity
 
-    y_position_plot.plot(time_data, y_data)
+    fig, y_vel = plt.subplots()
 
-    y_position_plot.set(xlabel = 'time [s]', ylabel = 'position [m]')
+    y_vel.set_title('Velocidad en el eje y')
+    y_vel.plot(time_data, kf_y_vel)
+    y_vel.set_ylabel(ylabel = '[m/s]')
+    y_vel.set_xlabel(xlabel = 'time [s]')
+    y_vel.grid(True)
+    plt.savefig(f"./plots/y_axis_velocity_{csv_path.split('.')[0]}.png")
 
-    kf_y_pos_plot.plot(time_data, kf_y_pos)
+    # Plot x-axis position along with the ball's velocity
 
-    kf_y_pos_plot.set(xlabel = 'time [s]', ylabel = 'KF position [m]')
+    fig, x_position = plt.subplots()
+    
+    x_position.set_title('Posición en el eje x')
+    x_position.plot(time_data, x_data, label = '[m] (Sin KF)')
+    x_position.plot(time_data, kf_x_pos, label = '[m] (Con KF)')
+    # x_position.plot(time_data, kf_x_vel, label = '[m/s] (Con KF)')
+    x_position.set_xlabel(xlabel = 'Tiempo [s]')
+    x_position.legend()
+    x_position.grid(True)
+    plt.savefig(f"./plots/x_axis_position_{csv_path.split('.')[0]}.png")
 
-    y_speed_plot.plot(time_data, y_speed)
+    # Plot x-axis velocity
 
-    y_speed_plot.set(xlabel = 'time [s]', ylabel = 'speed [m/s2]')
+    fig, x_vel = plt.subplots()
 
-    kf_y_vel_plot.plot(time_data, kf_y_vel)
-
-    kf_y_vel_plot.set(xlabel = 'time [s]', ylabel = 'KF speed [m/s2]')
-
-    plt.savefig(f"./plots/y_axis_plot_{csv_path.split('.')[0]}.png")
-
-    """
-
-    # x-axis plots
-
-    fig, (x_position_plot, x_speed_plot) = plt.subplots(2)
-
-    fig.suptitle('x-axis ' + csv_path)
-
-    x_position_plot.plot(time_data, x_data)
-
-    x_position_plot.set(xlabel = 'time [s]', ylabel = 'position [m]')
-
-    x_speed_plot.plot(time_data, x_speed)
-
-    x_speed_plot.set(xlabel = 'time [s]', ylabel = 'speed [m/s2]')
-
-    plt.savefig(f"./plots/x_axis_plot_{csv_path.split('.')[0]}.png")
-
-    """
+    x_vel.set_title('Velocidad en el eje x')
+    x_vel.plot(time_data, kf_x_vel)
+    x_vel.set_ylabel(ylabel = '[m/s]')
+    x_vel.set_xlabel(xlabel = 'time [s]')
+    x_vel.grid(True)
+    plt.savefig(f"./plots/x_axis_velocity_{csv_path.split('.')[0]}.png")
