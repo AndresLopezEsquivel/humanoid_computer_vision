@@ -1,7 +1,10 @@
 from kalman_filter_2 import EKF
+from random import gauss
 import matplotlib.pyplot as plt
 import numpy as np
 import csv
+
+sigma = 0.04 # Standard deviation
 
 dt = 1/10
 # k = 0.02, samples = 76
@@ -66,7 +69,7 @@ for y_pos in y:
 
 fig, y_position = plt.subplots()
 
-y_position.plot(t, y[:N] + [None] * (samples - N), 'ro', label = '[m] (Mediciones muestreadas)', markersize = 4)    
+y_position.plot(t, y[:N] + [None] * (samples - N), 'ro', label = '[m] (Mediciones muestreadas)', markersize = 4)
 y_position.plot(t, y, label = '[m] (Mediciones)')
 y_position.plot(t, kf_y, label = '[m] (Con KF)')
 y_position.plot(t, kf_vel_y, label = '[m/s] (Con KF)')
