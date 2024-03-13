@@ -1,5 +1,6 @@
 from kalman_filter_2 import EKF
 from random import gauss
+from pprint import pprint
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -29,6 +30,9 @@ while i < len(noised_y):
     kf_y.append(kf_data[1][0])
     kf_vel_y.append(kf_data[3][0])
     i += 1
+    print()
+    pprint(kf.P_hat)
+    pprint(kf.P)
 
 kf = EKF(dt, Q, R)
 
