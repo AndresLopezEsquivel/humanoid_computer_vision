@@ -4,23 +4,112 @@ import numpy as np
 from kalman_filter_2 import EKF
 from pprint import pprint
 
-PATH = ("/home/andres/Andres/humanoid_computer_vision/experiments/data_analysis" +
-"/logs/2024-02-22/test1_position_feb22.csv")
+TEST = {
+    "1" : {
+        "PATH": ("/home/andres/Andres/humanoid_computer_vision/experiments/data_analysis" +
+"/logs/2024-02-22/test1_position_feb22.csv"),
+        "N" : 25,
+        "region" : {
+            "min_index" : 40,
+            "max_index" : 150
+        },
 
-PRUEBA = 1
+        "y_pos" : {
+            "t_lim_1" : 4,
+            "t_lim_2" : 13.7,
+            "region_1" : {
+                "text" : "I",
+                "x" : 1.24,
+                "y" : -0.6
+            },
+            "region_2" : {
+                "text" : "II",
+                "x" : 9,
+                "y" : -1.1
+            },
+            "region_3" : {
+                "text" : "III",
+                "x" : 16.5,
+                "y" : -0.6
+            }
+        },
+
+        "x_pos" : {
+            "t_lim_1" : 4,
+            "t_lim_2" : 13.7,
+            "region_1" : {
+                "text" : "I",
+                "x" : 1.3,
+                "y" : 1.1
+            },
+            "region_2" : {
+                "text" : "II",
+                "x" : 9,
+                "y" : 1.1
+            },
+            "region_3" : {
+                "text" : "III",
+                "x" : 16.5,
+                "y" : 1.1
+            }
+        },
+
+        "y_vel" : {
+            "t_lim_1" : 4,
+            "t_lim_2" : 13.7,
+            "region_1" : {
+                "text" : "I",
+                "x" : 1.24,
+                "y" : 0.05
+            },
+            "region_2" : {
+                "text" : "II",
+                "x" : 9,
+                "y" : 0.05
+            },
+            "region_3" : {
+                "text" : "III",
+                "x" : 16.5,
+                "y" : 0.05
+            }
+        },
+
+        "x_vel" : {
+            "t_lim_1" : 4,
+            "t_lim_2" : 13.7,
+            "region_1" : {
+                "text" : "I",
+                "x" : 1.24,
+                "y" : 0.05
+            },
+            "region_2" : {
+                "text" : "II",
+                "x" : 9,
+                "y" : 0.05
+            },
+            "region_3" : {
+                "text" : "III",
+                "x" : 16.5,
+                "y" : 0.05
+            }
+        }
+    }
+}
+
+PRUEBA = "1"
+PATH = TEST[PRUEBA]["PATH"]
 
 dt = 0.1
 Q = np.identity(4) * 0.001
-R = np.identity(2) * 0.03 # 0.04
+R = np.identity(2) * 0.04 # 0.04
 kf_apriori = EKF(dt, Q, R)
 kf_aposteriori = EKF(dt, Q, R)
 
-N = 20 # Número
+N = TEST[PRUEBA]["N"] # Número de muestras
 
 t = []
 x_pos_meas = []
 y_pos_meas = []
-x_pos_apriori = []
 y_pos_apriori = []
 x_pos_aposteriori = []
 y_pos_aposteriori = []
@@ -44,12 +133,31 @@ while i < len(x_pos_meas):
     y_vel_aposteriori.append(kf_data[3][0])
     i += 1
 
+selected_y_pos_meas = y_pos_meas[TEST[PRUEBA]["region"]["min_index"]:TEST[PRUEBA]["region"]["max_index"]]
+selected_y_vel_aposteriori = y_vel_aposteriori[TEST[PRUEBA]["region"]["min_index"]:TEST[PRUEBA]["region"]["max_index"]]
+selected_t = t[TEST[PRUEBA]["region"]["min_index"]:TEST[PRUEBA]["region"]["max_index"]]
+i = 0
+
+while i <= N:
+    kf_apriori.predict()
+    kf_data = kf_apriori.update(Z = [0, selected_y_pos_meas[i]])
+    y_pos_apriori.append(kf_data[1][0])
+    y_vel_apriori.append(kf_data[3][0])
+    i += 1
+
+while i < len(selected_y_pos_meas):
+    kf_data = kf_apriori.predict()
+    y_pos_apriori.append(kf_data[1][0])
+    y_vel_apriori.append(kf_data[3][0])
+    kf_apriori.x = kf_data
+    i += 1
+
 # Y - position
 
 _, y_pos = plt.subplots()
 
-t_lim_1 = 4
-t_lim_2 = 13.7
+t_lim_1 = TEST[PRUEBA]["y_pos"]["t_lim_1"]
+t_lim_2 = TEST[PRUEBA]["y_pos"]["t_lim_2"]
 
 y_pos.plot(t, y_pos_meas, label = 'Mediciones')
 y_pos.plot(t, y_pos_aposteriori, label = 'Estimaciones a posteriori')
@@ -59,19 +167,19 @@ y_pos.set_xlabel(xlabel = '[s]')
 y_pos.set_ylabel(ylabel = '[m]')
 y_pos.set_title(f"Posición en el eje y (prueba {PRUEBA})")
 
-y_pos.text(x = 1.24,
-y = -0.6,
-s = "I",
+y_pos.text(x = TEST[PRUEBA]["y_pos"]["region_1"]["x"],
+y = TEST[PRUEBA]["y_pos"]["region_1"]["y"],
+s = TEST[PRUEBA]["y_pos"]["region_1"]["text"],
 fontsize = 20)
 
-y_pos.text(x = 9,
-y = -1.1,
-s = "II",
+y_pos.text(x = TEST[PRUEBA]["y_pos"]["region_2"]["x"],
+y = TEST[PRUEBA]["y_pos"]["region_2"]["y"],
+s = TEST[PRUEBA]["y_pos"]["region_2"]["text"],
 fontsize = 20)
 
-y_pos.text(x = 16.5,
-y = -0.6,
-s = "III",
+y_pos.text(x = TEST[PRUEBA]["y_pos"]["region_3"]["x"],
+y = TEST[PRUEBA]["y_pos"]["region_3"]["y"],
+s = TEST[PRUEBA]["y_pos"]["region_3"]["text"],
 fontsize = 20)
 
 y_pos.legend()
@@ -81,8 +189,8 @@ y_pos.grid(True)
 
 _, x_pos = plt.subplots()
 
-t_lim_1 = 4
-t_lim_2 = 13.7
+t_lim_1 = TEST[PRUEBA]["x_pos"]["t_lim_1"]
+t_lim_2 = TEST[PRUEBA]["x_pos"]["t_lim_2"]
 
 x_pos.plot(t, x_pos_meas, label = 'Mediciones')
 x_pos.plot(t, x_pos_aposteriori, label = 'Estimaciones a posteriori')
@@ -92,19 +200,19 @@ x_pos.set_xlabel(xlabel = '[s]')
 x_pos.set_ylabel(ylabel = '[m]')
 x_pos.set_title(f"Posición en el eje x (prueba {PRUEBA})")
 
-x_pos.text(x = 1.3,
-y = 1.1,
-s = "I",
+x_pos.text(x = TEST[PRUEBA]["x_pos"]["region_1"]["x"],
+y = TEST[PRUEBA]["x_pos"]["region_1"]["y"],
+s = TEST[PRUEBA]["x_pos"]["region_1"]["text"],
 fontsize = 20)
 
-x_pos.text(x = 9,
-y = 1.1,
-s = "II",
+x_pos.text(x = TEST[PRUEBA]["x_pos"]["region_2"]["x"],
+y = TEST[PRUEBA]["x_pos"]["region_2"]["y"],
+s = TEST[PRUEBA]["x_pos"]["region_2"]["text"],
 fontsize = 20)
 
-x_pos.text(x = 16.5,
-y = 1.1,
-s = "III",
+x_pos.text(x = TEST[PRUEBA]["x_pos"]["region_3"]["x"],
+y = TEST[PRUEBA]["x_pos"]["region_3"]["y"],
+s = TEST[PRUEBA]["x_pos"]["region_3"]["text"],
 fontsize = 20)
 
 x_pos.legend()
@@ -114,8 +222,8 @@ x_pos.grid(True)
 
 _, y_vel = plt.subplots()
 
-t_lim_1 = 4
-t_lim_2 = 13.7
+t_lim_1 = TEST[PRUEBA]["y_vel"]["t_lim_1"]
+t_lim_2 = TEST[PRUEBA]["y_vel"]["t_lim_2"]
 
 y_vel.plot(t, y_vel_aposteriori, label = 'Estimaciones a posteriori')
 y_vel.axvline(x = t_lim_1, linestyle = '--', linewidth = 1, color = 'k')
@@ -124,22 +232,80 @@ y_vel.set_xlabel(xlabel = '[s]')
 y_vel.set_ylabel(ylabel = '[m/s]')
 y_vel.set_title(f"Velocidad en el eje y (prueba {PRUEBA})")
 
-y_vel.text(x = 1.24,
-y = -0.6,
-s = "I",
+y_vel.text(x = TEST[PRUEBA]["y_vel"]["region_1"]["x"],
+y = TEST[PRUEBA]["y_vel"]["region_1"]["y"],
+s = TEST[PRUEBA]["y_vel"]["region_1"]["text"],
 fontsize = 20)
 
-y_vel.text(x = 9,
-y = -1.1,
-s = "II",
+y_vel.text(x = TEST[PRUEBA]["y_vel"]["region_2"]["x"],
+y = TEST[PRUEBA]["y_vel"]["region_2"]["y"],
+s = TEST[PRUEBA]["y_vel"]["region_2"]["text"],
 fontsize = 20)
 
-y_vel.text(x = 16.5,
-y = -0.6,
-s = "III",
+y_vel.text(x = TEST[PRUEBA]["y_vel"]["region_3"]["x"],
+y = TEST[PRUEBA]["y_vel"]["region_3"]["y"],
+s = TEST[PRUEBA]["y_vel"]["region_3"]["text"],
 fontsize = 20)
 
 y_vel.legend()
 y_vel.grid(True)
+
+# X - velocity
+
+_, x_vel = plt.subplots()
+
+t_lim_1 = TEST[PRUEBA]["x_vel"]["t_lim_1"]
+t_lim_2 = TEST[PRUEBA]["x_vel"]["t_lim_2"]
+
+x_vel.plot(t, x_vel_aposteriori, label = 'Estimaciones a posteriori')
+x_vel.axvline(x = t_lim_1, linestyle = '--', linewidth = 1, color = 'k')
+x_vel.axvline(x = t_lim_2, linestyle = '--', linewidth = 1, color = 'k')
+x_vel.set_xlabel(xlabel = '[s]')
+x_vel.set_ylabel(ylabel = '[m/s]')
+x_vel.set_title(f"Velocidad en el eje x (prueba {PRUEBA})")
+
+x_vel.text(x = TEST[PRUEBA]["x_vel"]["region_1"]["x"],
+y = TEST[PRUEBA]["x_vel"]["region_1"]["y"],
+s = TEST[PRUEBA]["x_vel"]["region_1"]["text"],
+fontsize = 20)
+
+x_vel.text(x = TEST[PRUEBA]["x_vel"]["region_2"]["x"],
+y = TEST[PRUEBA]["x_vel"]["region_2"]["y"],
+s = TEST[PRUEBA]["x_vel"]["region_2"]["text"],
+fontsize = 20)
+
+x_vel.text(x = TEST[PRUEBA]["x_vel"]["region_3"]["x"],
+y = TEST[PRUEBA]["x_vel"]["region_3"]["y"],
+s = TEST[PRUEBA]["x_vel"]["region_3"]["text"],
+fontsize = 20)
+
+x_vel.legend()
+x_vel.grid(True)
+
+# Y - position prediction
+
+_, y_pos_pred = plt.subplots()
+
+y_pos_pred.plot(selected_t, selected_y_pos_meas, label = 'Mediciones')
+y_pos_pred.plot(selected_t, y_pos_apriori, label = 'Estimaciones a priori')
+y_pos_pred.set_xlabel(xlabel = '[s]')
+y_pos_pred.set_ylabel(ylabel = '[m]')
+y_pos_pred.set_title(f"Predicción de posición en el eje y (prueba {PRUEBA})")
+
+y_pos_pred.legend()
+y_pos_pred.grid(True)
+
+# Y - vel prediction
+
+_, y_vel_pred = plt.subplots()
+
+y_vel_pred.plot(selected_t, selected_y_vel_aposteriori, label = 'Estimaciones a posteriori')
+y_vel_pred.plot(selected_t, y_vel_apriori, label = 'Estimaciones a priori')
+y_vel_pred.set_xlabel(xlabel = '[s]')
+y_vel_pred.set_ylabel(ylabel = '[m/s]')
+y_vel_pred.set_title(f"Predicción de velocidad en el eje y (prueba {PRUEBA})")
+
+y_vel_pred.legend()
+y_vel_pred.grid(True)
 
 plt.show()
