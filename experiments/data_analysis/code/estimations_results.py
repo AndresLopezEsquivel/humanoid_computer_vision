@@ -5,6 +5,7 @@ from kalman_filter_2 import EKF
 from pprint import pprint
 
 TEST = {
+    # === TEST 1 ===
     "1" : {
         "PATH": ("/home/andres/Andres/humanoid_computer_vision/experiments/data_analysis" +
 "/logs/2024-02-22/test1_position_feb22.csv"),
@@ -93,15 +94,290 @@ TEST = {
                 "y" : 0.05
             }
         }
+    },
+
+    # === TEST 2 ===
+    "2" : {
+        "PATH": ("/home/andres/Andres/humanoid_computer_vision/experiments/data_analysis" +
+"/logs/2024-02-22/test2_position_feb22.csv"),
+        "N" : 30,
+        "region" : {
+            "min_index" : 60,
+            "max_index" : 146
+        },
+
+        "y_pos" : {
+            "t_lim_1" : 5.8,
+            "t_lim_2" : 14.5,
+            "region_1" : {
+                "text" : "I",
+                "x" : 1.24,
+                "y" : -0.6
+            },
+            "region_2" : {
+                "text" : "II",
+                "x" : 9,
+                "y" : -1.1
+            },
+            "region_3" : {
+                "text" : "III",
+                "x" : 16.5,
+                "y" : -0.6
+            }
+        },
+
+        "x_pos" : {
+            "t_lim_1" : 5.8,
+            "t_lim_2" : 14.5,
+            "region_1" : {
+                "text" : "I",
+                "x" : 1.5,
+                "y" : 0.4
+            },
+            "region_2" : {
+                "text" : "II",
+                "x" : 8.3,
+                "y" : 0.4
+            },
+            "region_3" : {
+                "text" : "III",
+                "x" : 16.2,
+                "y" : 0.4
+            }
+        },
+
+        "y_vel" : {
+            "t_lim_1" : 5.8,
+            "t_lim_2" : 14.5,
+            "region_1" : {
+                "text" : "I",
+                "x" : 1.24,
+                "y" : 0.05
+            },
+            "region_2" : {
+                "text" : "II",
+                "x" : 9,
+                "y" : 0.05
+            },
+            "region_3" : {
+                "text" : "III",
+                "x" : 16.5,
+                "y" : 0.05
+            }
+        },
+
+        "x_vel" : {
+            "t_lim_1" : 5.8,
+            "t_lim_2" : 14.5,
+            "region_1" : {
+                "text" : "I",
+                "x" : 1.24,
+                "y" : 0.03
+            },
+            "region_2" : {
+                "text" : "II",
+                "x" : 9,
+                "y" : 0.03
+            },
+            "region_3" : {
+                "text" : "III",
+                "x" : 16.5,
+                "y" : 0.03
+            }
+        }
+    },
+
+    # === TEST 3 ===
+
+    "3" : {
+        "PATH": ("/home/andres/Andres/humanoid_computer_vision/experiments/data_analysis" +
+"/logs/2024-02-22/test3_position_feb22.csv"),
+        "N" : 12,
+        "region" : {
+            "min_index" : 19,
+            "max_index" : 44
+        },
+
+        "y_pos" : {
+            "t_lim_1" : 1.8,
+            "t_lim_2" : 4.6,
+            "region_1" : {
+                "text" : "I",
+                "x" : 1.24,
+                "y" : -0.6
+            },
+            "region_2" : {
+                "text" : "II",
+                "x" : 3,
+                "y" : -0.6
+            },
+            "region_3" : {
+                "text" : "III",
+                "x" : 5.5,
+                "y" : -0.6
+            }
+        },
+
+        "x_pos" : {
+            "t_lim_1" : 1.8,
+            "t_lim_2" : 4.6,
+            "region_1" : {
+                "text" : "I",
+                "x" : 1.3,
+                "y" : 1.1
+            },
+            "region_2" : {
+                "text" : "II",
+                "x" : 2.8,
+                "y" : 0.4
+            },
+            "region_3" : {
+                "text" : "III",
+                "x" : 5.5,
+                "y" : 1.1
+            }
+        },
+
+        "y_vel" : {
+            "t_lim_1" : 1.8,
+            "t_lim_2" : 4.6,
+            "region_1" : {
+                "text" : "I",
+                "x" : 1.24,
+                "y" : 0.05
+            },
+            "region_2" : {
+                "text" : "II",
+                "x" : 3.2,
+                "y" : 0.05
+            },
+            "region_3" : {
+                "text" : "III",
+                "x" : 5.5,
+                "y" : 0.05
+            }
+        },
+
+        "x_vel" : {
+            "t_lim_1" : 1.8,
+            "t_lim_2" : 4.6,
+            "region_1" : {
+                "text" : "I",
+                "x" : 1.24,
+                "y" : 0.05
+            },
+            "region_2" : {
+                "text" : "II",
+                "x" : 3.2,
+                "y" : 0.05
+            },
+            "region_3" : {
+                "text" : "III",
+                "x" : 5.5,
+                "y" : 0.05
+            }
+        }
+    },
+
+    # === TEST 4 ===
+
+    "4" : {
+        "PATH": ("/home/andres/Andres/humanoid_computer_vision/experiments/data_analysis" +
+"/logs/2024-02-22/test4_position_feb22.csv"),
+        "N" : 12,
+        "region" : {
+            "min_index" : 14,
+            "max_index" : 41
+        },
+
+        "y_pos" : {
+            "t_lim_1" : 1.4,
+            "t_lim_2" : 4,
+            "region_1" : {
+                "text" : "I",
+                "x" : 0.5,
+                "y" : -1.5
+            },
+            "region_2" : {
+                "text" : "II",
+                "x" : 3,
+                "y" : -1.5
+            },
+            "region_3" : {
+                "text" : "III",
+                "x" : 5.3,
+                "y" : -1.5
+            }
+        },
+
+        "x_pos" : {
+            "t_lim_1" : 1.4,
+            "t_lim_2" : 4,
+            "region_1" : {
+                "text" : "I",
+                "x" : 0.5,
+                "y" : 0.85
+            },
+            "region_2" : {
+                "text" : "II",
+                "x" : 3,
+                "y" : 0.85
+            },
+            "region_3" : {
+                "text" : "III",
+                "x" : 5.5,
+                "y" : 0.85
+            }
+        },
+
+        "y_vel" : {
+            "t_lim_1" : 1.4,
+            "t_lim_2" : 4,
+            "region_1" : {
+                "text" : "I",
+                "x" : 1.15,
+                "y" : 0.05
+            },
+            "region_2" : {
+                "text" : "II",
+                "x" : 3.1,
+                "y" : 0.05
+            },
+            "region_3" : {
+                "text" : "III",
+                "x" : 5.4,
+                "y" : 0.05
+            }
+        },
+
+        "x_vel" : {
+            "t_lim_1" : 1.4,
+            "t_lim_2" : 4,
+            "region_1" : {
+                "text" : "I",
+                "x" : 1.24,
+                "y" : 0.05
+            },
+            "region_2" : {
+                "text" : "II",
+                "x" : 3.2,
+                "y" : 0.05
+            },
+            "region_3" : {
+                "text" : "III",
+                "x" : 5.5,
+                "y" : 0.05
+            }
+        }
     }
 }
 
-PRUEBA = "1"
+PRUEBA = "4"
 PATH = TEST[PRUEBA]["PATH"]
 
 dt = 0.1
 Q = np.identity(4) * 0.001
-R = np.identity(2) * 0.04 # 0.04
+R = np.identity(2) * 0.005 # 0.04
 kf_apriori = EKF(dt, Q, R)
 kf_aposteriori = EKF(dt, Q, R)
 
@@ -136,6 +412,8 @@ while i < len(x_pos_meas):
 selected_y_pos_meas = y_pos_meas[TEST[PRUEBA]["region"]["min_index"]:TEST[PRUEBA]["region"]["max_index"]]
 selected_y_vel_aposteriori = y_vel_aposteriori[TEST[PRUEBA]["region"]["min_index"]:TEST[PRUEBA]["region"]["max_index"]]
 selected_t = t[TEST[PRUEBA]["region"]["min_index"]:TEST[PRUEBA]["region"]["max_index"]]
+selected_t0 = selected_t[0]
+selected_t = [t - selected_t0 for t in selected_t]
 i = 0
 
 while i <= N:
@@ -288,6 +566,9 @@ _, y_pos_pred = plt.subplots()
 
 y_pos_pred.plot(selected_t, selected_y_pos_meas, label = 'Mediciones')
 y_pos_pred.plot(selected_t, y_pos_apriori, label = 'Estimaciones a priori')
+y_pos_pred.plot(selected_t,
+                selected_y_pos_meas[:TEST[PRUEBA]["N"]] + [None] * (len(selected_y_pos_meas) - TEST[PRUEBA]["N"]),
+                'ro', label = 'Mediciones consideradas', markersize = 2)
 y_pos_pred.set_xlabel(xlabel = '[s]')
 y_pos_pred.set_ylabel(ylabel = '[m]')
 y_pos_pred.set_title(f"Predicción de posición en el eje y (prueba {PRUEBA})")
